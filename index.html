@@ -37,7 +37,7 @@
         const { useState, useEffect, useRef } = React;
 
         // --- GLOBAL CONFIGURATION ---
-        const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby6ZnUyaQdzh69jBoPJ9J-Zid5CqzwxoSct25tA2ZFtSDI1G2gbv1YoZy1tdpNjKYWIvA/exec";
+        const GOOGLE_SHEET_WEBHOOK_URL = "URL_APP_SCRIPT_KAMU_DISINI";
         const GEMINI_API_KEY = ""; // Lingkungan runtime menyediakan kunci secara otomatis
 
         // --- FUNGSI SHUFFLE ---
@@ -55,19 +55,14 @@
             {
                 level: 1, difficulty: "Noob Level (Easy)", difficultyColor: "text-emerald-500 bg-emerald-950/30 border-emerald-500/30",
                 bank: [
-                    // [ORGANIK]
                     { id: 101, productIcon: "Powder", productType: "Sabun Natural", packagingIcon: "Pouch", imageUrl: "assets/sabun-daun.jpg", title: "Daun Pisang & Tali Rami", description: "Membungkus sabun natural dengan daun pisang kering diikat tali rami alam tanpa stiker lem.", correctAnswer: "ORGANIK", explanation: "Sangat natural! Daun dan tali rami murni berasal dari alam dan bisa langsung dibuang ke tong hijau buat jadi kompos." },
                     { id: 102, productIcon: "Cream", productType: "Keranjang Sayur", packagingIcon: "Carton", imageUrl: "assets/anyaman-bambu.jpg", title: "Anyaman Bambu", description: "Keranjang pembungkus sayur dari anyaman bambu murni tanpa paku atau lem kimia.", correctAnswer: "ORGANIK", explanation: "Slay! Bambu murni tanpa lem itu gampang banget dikomposin dan hancur di alam. Earth heals!" },
-                    // [KERTAS]
                     { id: 103, productIcon: "Powder", productType: "Sabun Batang", packagingIcon: "Carton", imageUrl: "assets/karton-cokelat.jpg", title: "Karton Cokelat Polos", description: "Boks sabun dari kertas kraft tanpa laminasi mengkilap. Pure vibes alam.", correctAnswer: "KERTAS", explanation: "Tanpa laminasi plastik, kertas karton ini gampang banget dihancurin jadi bubur pulp lagi. Eco-friendly abis!" },
                     { id: 104, productIcon: "Powder", productType: "Skincare Set", packagingIcon: "Carton", imageUrl: "assets/tray-telur.jpg", title: "Tray Karton Telur", description: "Alih-alih pakai busa plastik, kamu pakai penyangga dari cetakan bubur kertas (molded pulp).", correctAnswer: "KERTAS", explanation: "Molded pulp (kertas cetak) ini gampang banget masuk tong kertas dan hancur lebur bareng kardus lainnya." },
-                    // [ANORGANIK]
                     { id: 105, productIcon: "Liquid", productType: "Air Mineral", packagingIcon: "Bottle", imageUrl: "assets/botol-pet.jpg", title: "Botol PET Transparan", description: "Botol plastik PET bening tanpa zat pewarna heboh.", correctAnswer: "ANORGANIK", explanation: "Plastik bening (PET) itu primadonanya kang loak dan pabrik daur ulang karena nilai jualnya tinggi dan mudah diproses." },
                     { id: 106, productIcon: "Cream", productType: "Krim Wajah", packagingIcon: "Jar", imageUrl: "assets/toples-kaca.jpg", title: "Toples Kaca Bening", description: "Wadah krim dari kaca tebal bening dengan tutup aluminium.", correctAnswer: "ANORGANIK", explanation: "Kaca dan logam bisa didaur ulang berkali-kali tanpa batas (infinite loop) dan kualitas materialnya gak akan turun." },
-                    // [B3]
                     { id: 107, productIcon: "Liquid", productType: "Obat Nyamuk", packagingIcon: "Canister", imageUrl: "assets/kaleng-nyamuk.jpg", title: "Kaleng Semprot Nyamuk", description: "Kemasan obat nyamuk semprot pakai kaleng aluminium bertekanan.", correctAnswer: "B3", explanation: "Karena isinya cairan kimia beracun, kaleng ini nggak boleh asal lempar ke anorganik. Wajib masuk tong merah (B3)." },
                     { id: 108, productIcon: "Liquid", productType: "Pembersih Toilet", packagingIcon: "Bottle", imageUrl: "assets/botol-karbol.jpg", title: "Botol Karbol", description: "Botol plastik tebal berisi sisa cairan pembersih kerak toilet yang sangat keras dan korosif.", correctAnswer: "B3", explanation: "Red flag bestie! Cairan pembersih toilet itu bahan kimia korosif. Masuk tong merah biar aman." },
-                    // [RESIDU]
                     { id: 109, productIcon: "Cream", productType: "Skincare", packagingIcon: "Sachet", imageUrl: "assets/plastik-wrap.jpg", title: "Plastik Wrap Bening", description: "Menggulung produk pakai plastic wrap super tipis (cling wrap) biar aman pas pengiriman.", correctAnswer: "RESIDU", explanation: "Plastik tipis melar gini gampang nyangkut di mesin daur ulang dan gak ada harganya. Langsung dibuang jadi residu." },
                     { id: 110, productIcon: "Powder", productType: "Permen", packagingIcon: "Sachet", imageUrl: "assets/bungkus-permen.jpg", title: "Plastik Bening Kecil", description: "Bungkus permen individu yang sangat tipis dan ringan, terbuat dari plastik bening murahan.", correctAnswer: "RESIDU", explanation: "Plastik tipis murahan gini mustahil didaur ulang karena nilainya nol besar. Sampah abadi alert!" }
                 ]
@@ -75,19 +70,14 @@
             {
                 level: 2, difficulty: "Lumayan Mikir (Medium)", difficultyColor: "text-blue-400 bg-blue-950/30 border-blue-500/30",
                 bank: [
-                    // [ORGANIK]
                     { id: 201, productIcon: "Powder", productType: "Aksesoris Mandi", packagingIcon: "Pouch", imageUrl: "assets/spons-gambas.jpg", title: "Spons Gambas (Loofah)", description: "Spons mandi terbuat dari sayur gambas kering utuh tanpa campuran spons sintetis.", correctAnswer: "ORGANIK", explanation: "Real eco-friendly! Karena murni dari tumbuhan kering, loofah bekas bisa langsung masuk tong hijau buat dikomposkan." },
                     { id: 202, productIcon: "Cream", productType: "Wadah Telur", packagingIcon: "Carton", imageUrl: "assets/daun-jati.jpg", title: "Daun Jati Kering", description: "Telur organik dibungkus lipatan daun jati kering alami tanpa staples logam.", correctAnswer: "ORGANIK", explanation: "Eco-aesthetic yang valid! Daun jati kering 100% biodegradable. Auto masuk tong hijau." },
-                    // [KERTAS]
                     { id: 203, productIcon: "Powder", productType: "Pengisi Paket", packagingIcon: "Carton", imageUrl: "assets/kertas-cacah.jpg", title: "Kertas Cacah (Shredded)", description: "Pengganti bubble wrap plastik, kamu pakai kertas kraft yang dicacah-cacah memanjang.", correctAnswer: "KERTAS", explanation: "Kertas cacah gampang banget diurai dan 100% aman masuk tong biru tanpa ninggalin mikroplastik ke lingkungan." },
                     { id: 204, productIcon: "Cream", productType: "Kotak Sepatu", packagingIcon: "Carton", imageUrl: "assets/kardus-gelombang.jpg", title: "Kardus Gelombang", description: "Corrugated box murni tanpa solasi plastik, hanya pakai sistem kaitan lipat.", correctAnswer: "KERTAS", explanation: "Kardus murni tanpa lakban itu green flag banget buat mesin pabrik kertas. Gampang dilebur!" },
-                    // [ANORGANIK]
                     { id: 205, productIcon: "Liquid", productType: "Sabun Cuci Muka", packagingIcon: "Bottle", imageUrl: "assets/botol-hdpe.jpg", title: "Botol HDPE Monomaterial", description: "Botol plastik tebal warna putih solid dari satu bahan murni (HDPE angka 2).", correctAnswer: "ANORGANIK", explanation: "HDPE itu plastik sultan yang kuat dan gampang banget dilebur buat dijadiin botol baru atau ember daur ulang." },
-                    { id: 206, productIcon: "Liquid", productType: "Botol Sabun", packagingIcon: "Bottle", imageUrl: "assets/stiker-larut.jpg", title: "Stiker Lem Water-Soluble", description: "Botol plastik pakai stiker label, tapi lemnya dirancang gampang larut kalau kena air.", correctAnswer: "ANORGANIK", explanation: "Pas dicuci di pabrik daur ulang, labelnya bakal lepas sendiri. Plastik botolnya auto bersih tanpa sisa lengket!" },
-                    // [B3]
+                    { id: 206, productIcon: "Liquid", productType: "Botol Sabun", packagingIcon: "Bottle", imageUrl: "assets/stiker-larut.jpg", title: "Stiker Lem Water-Soluble", description: "Botol plastik pakai stiker label, tapi lemnya dirancang gampang larut kalau kena air.", correctAnswer: "ANORGANIK", explanation: "Pas dicuci di pabrik daur ulang, labelnya bakal lepas sendiri. Plastik botolnya auto bersih tanpa sisa lem buatan!" },
                     { id: 207, productIcon: "Liquid", productType: "Cat Semprot", packagingIcon: "Canister", imageUrl: "assets/kaleng-pilox.jpg", title: "Kaleng Pilox Cat", description: "Kemasan cat semprot aluminium bertekanan dengan sisa cat di dalamnya.", correctAnswer: "B3", explanation: "Bahan kimia sisa cat, mudah terbakar, dan bertekanan. Udah pasti harus masuk tong B3, jangan dicampur ya!" },
                     { id: 208, productIcon: "Liquid", productType: "Lem Super", packagingIcon: "Bottle", imageUrl: "assets/lem-korea.jpg", title: "Tube Lem Korea", description: "Tube kecil berisi lem cair yang sangat reaktif dan menempel keras, masih ada sisa di dalamnya.", correctAnswer: "B3", explanation: "Toxic trait: menempel selamanya. Sisa lem kimia yang reaktif wajib masuk B3 biar nggak bahayain lingkungan." },
-                    // [RESIDU]
                     { id: 209, productIcon: "Powder", productType: "Dus Makeup", packagingIcon: "Carton", imageUrl: "assets/dus-glossy.jpg", title: "Dus Laminasi Glossy", description: "Biar kelihatan mewah, dus karton dilapisi plastik glossy yang susah dirobek.", correctAnswer: "RESIDU", explanation: "Laminasi plastik bikin kertas ini ditolak pabrik daur ulang karena lapisan plastiknya susah dipisah dari serat kertasnya." },
                     { id: 210, productIcon: "Liquid", productType: "Kopi Kekinian", packagingIcon: "Carton", imageUrl: "assets/paper-cup.jpg", title: "Paper Cup Kopi", description: "Gelas 'kertas' yang menahan cairan panas biar gak bocor (dilapisi plastik/PE).", correctAnswer: "RESIDU", explanation: "Luarnya doang kertas, dalemnya dilapis plastik tipis yang nyatu banget (multilayer). Susah dipisah, akhirnya jadi residu." }
                 ]
@@ -95,19 +85,14 @@
             {
                 level: 3, difficulty: "Dilema Desainer (Hard)", difficultyColor: "text-amber-500 bg-amber-950/30 border-amber-500/30",
                 bank: [
-                    // [ORGANIK]
                     { id: 301, productIcon: "Cream", productType: "Wadah Sabun", packagingIcon: "Jar", imageUrl: "assets/batok-kelapa.jpg", title: "Tempurung Kelapa Polos", description: "Wadah sabun yang terbuat dari tempurung kelapa asli dihaluskan, tanpa pelitur sintetis.", correctAnswer: "ORGANIK", explanation: "Vibes tropical natural! Kelapa polos tanpa pernis bisa langsung balik ke tanah. Perfect!" },
                     { id: 302, productIcon: "Powder", productType: "Sikat Gigi", packagingIcon: "Bottle", imageUrl: "assets/sikat-kayu.jpg", title: "Gagang Kayu Mahoni", description: "Gagang sikat gigi kayu utuh (bulu nilonnya sudah dicabut oleh konsumen).", correctAnswer: "ORGANIK", explanation: "Minus bulu nilon, gagang kayunya 100% organik. Jangan lupa cabut bulunya dulu ya bestie!" },
-                    // [KERTAS]
                     { id: 303, productIcon: "Liquid", productType: "Pelindung Botol", packagingIcon: "Carton", imageUrl: "assets/honeycomb-wrap.jpg", title: "Honeycomb Paper Wrap", description: "Kertas kraft yang diiris mekar menyerupai sarang lebah untuk ganti bubble wrap.", correctAnswer: "KERTAS", explanation: "Kertas sarang lebah (honeycomb) ini gampang banget didaur ulang sama pabrik kertas. Alternatif bubble wrap yang sempurna." },
                     { id: 304, productIcon: "Powder", productType: "Kantong Belanja", packagingIcon: "Pouch", imageUrl: "assets/paper-bag.jpg", title: "Paper Bag Tali Kertas", description: "Kantong kertas tebal dengan handle/tali yang juga terbuat dari gulungan kertas utuh (bukan pita kain).", correctAnswer: "KERTAS", explanation: "No cap, paper bag full kertas gini favorit pabrik daur ulang karena gak perlu misahin pita plastiknya." },
-                    // [ANORGANIK]
                     { id: 305, productIcon: "Liquid", productType: "Air Kemasan", packagingIcon: "Bottle", imageUrl: "assets/botol-sablon.jpg", title: "Botol Kaca Sablon", description: "Botol kaca bening tanpa stiker plastik, teksnya disablon tipis langsung di kaca.", correctAnswer: "ANORGANIK", explanation: "Sablon tipis masih gampang leleh hilang di suhu ekstrem tungku kaca. Jauh lebih aman dibanding botol yang full dicat." },
                     { id: 306, productIcon: "Cream", productType: "Krim Wajah", packagingIcon: "Jar", imageUrl: "assets/pot-aluminium.jpg", title: "Pot Aluminium Murni", description: "Toples krim kecil dari bahan logam aluminium murni tanpa lapisan cat atau stiker.", correctAnswer: "ANORGANIK", explanation: "Aluminium murni itu rajanya sirkular! Bisa didaur ulang berkali-kali tanpa turun kualitas." },
-                    // [B3]
                     { id: 307, productIcon: "Liquid", productType: "Pembersih Kuku", packagingIcon: "Bottle", imageUrl: "assets/botol-aseton.jpg", title: "Botol Kaca Aseton", description: "Botol kaca bekas berisi sisa cairan aseton pembersih kuku yang mudah terbakar.", correctAnswer: "B3", explanation: "Walau botolnya kaca, tapi sisa cairan aseton itu highly flammable (mudah terbakar). Masuk B3 dulu biar dikelola ahlinya." },
                     { id: 308, productIcon: "Liquid", productType: "Disinfektan", packagingIcon: "Bottle", imageUrl: "assets/botol-pemutih.jpg", title: "Botol Cairan Pemutih", description: "Botol plastik tebal berisi sisa cairan klorin pemutih pakaian yang baunya menyengat.", correctAnswer: "B3", explanation: "Klorin keras itu highly toxic buat air tanah. Wajib masuk jalur khusus tong merah." },
-                    // [RESIDU]
                     { id: 309, productIcon: "Liquid", productType: "Isi Ulang Sabun", packagingIcon: "Pouch", imageUrl: "assets/pouch-multilayer.jpg", title: "Refill Pouch Multilayer", description: "Pouch isi ulang perpaduan plastik, foil, dan lem yang di-press jadi satu lapisan tak terpisahkan.", correctAnswer: "RESIDU", explanation: "Material campur aduk (multilayer plastik + logam) yang di-press kuat ini mustahil dipisah secara ekonomis. Fix sampah abadi." },
                     { id: 310, productIcon: "Cream", productType: "Serum Mahal", packagingIcon: "Bottle", imageUrl: "assets/kaca-frosted.jpg", title: "Kaca Cat Frosted", description: "Botol kaca tebal tapi dilapisi cat kimia buram (frosted) pelapis seluruh body biar estetik.", correctAnswer: "RESIDU", explanation: "Cat kimia pada kaca ini bakal ngotorin tungku peleburan kaca bening pabrik. Sering banget berujung ditolak dan dibuang." }
                 ]
@@ -115,19 +100,14 @@
             {
                 level: 4, difficulty: "Awas Greenwashing! (Very Hard)", difficultyColor: "text-orange-500 bg-orange-950/30 border-orange-500/30",
                 bank: [
-                    // [ORGANIK]
                     { id: 401, productIcon: "Powder", productType: "Teh Celup", packagingIcon: "Sachet", imageUrl: "assets/teh-katun.jpg", title: "Kantong Katun Alami", description: "Kantong teh dari jaring katun organik murni berisi sisa daun teh, tanpa staples logam.", correctAnswer: "ORGANIK", explanation: "Green flag! Kain katun murni tanpa staples logam gampang membusuk secara alami bareng tehnya." },
                     { id: 402, productIcon: "Cream", productType: "Pelindung Kaca", packagingIcon: "Carton", imageUrl: "assets/jerami-padi.jpg", title: "Jerami Padi", description: "Jerami padi kering alami yang digunakan sebagai bantalan anti-pecah di dalam kotak paket.", correctAnswer: "ORGANIK", explanation: "Back to nature! Jerami padi asli nggak butuh energi buat hancur. Auto kompos!" },
-                    // [KERTAS]
                     { id: 403, productIcon: "Cream", productType: "Box Makanan", packagingIcon: "Carton", imageUrl: "assets/bagasse-box.jpg", title: "Bagasse Kraft", description: "Kotak take-away dari ampas tebu (bagasse) murni berwarna kecokelatan tanpa lapisan lilin pelindung.", correctAnswer: "KERTAS", explanation: "Slay! Ampas tebu murni gampang banget didaur ulang bareng kertas atau hancur di tanah." },
                     { id: 404, productIcon: "Powder", productType: "Kertas Kado", packagingIcon: "Carton", imageUrl: "assets/kertas-koran.jpg", title: "Koran Bekas", description: "Kertas koran bekas harian yang dicetak dengan tinta ramah lingkungan untuk membungkus kado.", correctAnswer: "KERTAS", explanation: "Vintage aesthetic yang eco-friendly. Kertas koran gampang diurai lagi di pabrik." },
-                    // [ANORGANIK]
                     { id: 405, productIcon: "Cream", productType: "Hand Cream", packagingIcon: "Bottle", imageUrl: "assets/tube-monomaterial.jpg", title: "Tube Plastik Monomaterial", description: "Tube lentur kosmetik yang 100% dari PE murni (plastik tipe 2 atau 4) tanpa ada lapisan foil perak di dalamnya.", correctAnswer: "ANORGANIK", explanation: "Karena murni dibuat dari satu jenis plastik aja (monomaterial), material ini masih sangat bisa dicacah and didaur ulang." },
                     { id: 406, productIcon: "Liquid", productType: "Minuman Soda", packagingIcon: "Canister", imageUrl: "assets/kaleng-embos.jpg", title: "Kaleng Aluminium Embos", description: "Kaleng minuman yang tidak memakai cat sablon, hanya murni ukiran embos pada kaleng aluminium polos.", correctAnswer: "ANORGANIK", explanation: "Desain sultan! Kaleng polos tanpa cat sablon bikin tungku peleburan logam makin bersih." },
-                    // [B3]
                     { id: 407, productIcon: "Cream", productType: "Cat Rambut", packagingIcon: "Canister", imageUrl: "assets/tube-amonia.jpg", title: "Tube Amonia", description: "Tube isi sisa krim pewarna rambut salon yang bau amonia kimianya sangat kuat.", correctAnswer: "B3", explanation: "Limbah sisa kimia kosmetik keras gini nggak bisa dipandang sebelah mata. Wajib dipisah ke tong merah B3 agar tidak cemari air tanah." },
                     { id: 408, productIcon: "Liquid", productType: "Cairan Pel", packagingIcon: "Pouch", imageUrl: "assets/pouch-karbol.jpg", title: "Pouch Obat Pel Lantai", description: "Kantong pouch fleksibel berisi sisa cairan kimia karbol antibakteri yang kuat.", correctAnswer: "B3", explanation: "Kombinasi mematikan: pouch multilayer + sisa kimia antibakteri keras. Amankan ke B3!" },
-                    // [RESIDU]
                     { id: 409, productIcon: "Liquid", productType: "Botol Eco", packagingIcon: "Bottle", imageUrl: "assets/botol-pla.jpg", title: "Botol Bioplastik (PLA)", description: "Botol dari pati jagung berlabel 'Compostable'. Nggak membusuk di alam, tapi ngerusak daur ulang plastik asli.", correctAnswer: "RESIDU", explanation: "Bioplastik PLA cuma hancur di pabrik kompos industri (suhu >60°C). Masuk tong hijau nggak bakal terurai utuh, masuk tong kuning malah ngerusak daur ulang PET." },
                     { id: 410, productIcon: "Powder", productType: "Tisu Basah", packagingIcon: "Pouch", imageUrl: "assets/tisu-flushable.jpg", title: "Tisu 'Flushable'", description: "Lembaran tisu basah yang diklaim aman disiram ke kloset, padahal terbuat dari serat plastik sintetis poliester.", correctAnswer: "RESIDU", explanation: "Serat plastiknya nggak hancur di air dan malah bikin mampet gorong-gorong kota hingga menjadi gumpalan 'fatberg'." }
                 ]
@@ -135,19 +115,14 @@
             {
                 level: 5, difficulty: "The Final Boss (Expert)", difficultyColor: "text-red-500 bg-red-950/30 border-red-500/30",
                 bank: [
-                    // [ORGANIK]
                     { id: 501, productIcon: "Powder", productType: "Kuas Makeup", packagingIcon: "Bottle", imageUrl: "assets/kuas-bambu.jpg", title: "Bambu Tanpa Pernis", description: "Gagang kuas makeup dari potongan bambu alami yang tidak dilapisi pernis/cat sintetis sama sekali.", correctAnswer: "ORGANIK", explanation: "Bambu utuh tanpa lapisan cat sintesis itu 100% aman buat dikompos. No greenwashing here!" },
                     { id: 502, productIcon: "Cream", productType: "Spons Cuci", packagingIcon: "Carton", imageUrl: "assets/spons-selulosa.jpg", title: "Selulosa Kayu murni", description: "Spons cuci piring yang 100% dari busa selulosa kayu nabati (tanpa tambahan sabut spons nilon hijau).", correctAnswer: "ORGANIK", explanation: "Busa selulosa kayu murni itu plant-based bestie. Asal gak ada spons hijau kasarnya, aman dikompos!" },
-                    // [KERTAS]
                     { id: 503, productIcon: "Powder", productType: "Kemasan Cokelat", packagingIcon: "Canister", imageUrl: "assets/tabung-kraft.jpg", title: "Tabung Kertas Kraft", description: "Tabung silinder panjang 100% gulungan kertas tebal utuh (termasuk tutupnya), tanpa ring logam penahan.", correctAnswer: "KERTAS", explanation: "Silinder full kertas tanpa ring logam gampang banget masuk mesin daur ulang karton. Top tier design!" },
                     { id: 504, productIcon: "Cream", productType: "Bantalan Kotak", packagingIcon: "Carton", imageUrl: "assets/mushroom-packaging.jpg", title: "Mushroom Packaging", description: "Bantalan penahan goncangan yang ditumbuhkan dari miselium jamur dan limbah pertanian (pengganti styrofoam).", correctAnswer: "KERTAS", explanation: "Miselium jamur bisa dibuang ke kertas atau organik. Alternatif styrofoam yang mind-blowing!" },
-                    // [ANORGANIK]
                     { id: 505, productIcon: "Liquid", productType: "Botol Sabun", packagingIcon: "Bottle", imageUrl: "assets/pompa-pp.jpg", title: "Botol & Pompa Dispenser PP", description: "Botol PET lengkap dengan pompa tekan yang didesain khusus 100% dari plastik PP murni (tanpa pegas logam spiral di dalam pompa).", correctAnswer: "ANORGANIK", explanation: "Desain langka! Pompa tanpa pegas besi bikin botol ini bisa langsung digiling utuh sama pabrik plastik." },
                     { id: 506, productIcon: "Cream", productType: "Skincare", packagingIcon: "Bottle", imageUrl: "assets/tube-aluminium.jpg", title: "Tube Aluminium Murni", description: "Tube kemasan salep mahal yang murni terbuat dari logam aluminium utuh (tutup plastiknya sudah dicopot).", correctAnswer: "ANORGANIK", explanation: "Aluminium murni bisa dilebur lagi jadi barang baru dengan energi 95% lebih hemat." },
-                    // [B3]
                     { id: 507, productIcon: "Liquid", productType: "Deo Aerosol", packagingIcon: "Canister", imageUrl: "assets/kaleng-propelan.jpg", title: "Kaleng Propelan", description: "Kaleng aluminium kedap udara dengan gas bertekanan tinggi propelan aerosol di dalamnya (bisa meledak).", correctAnswer: "B3", explanation: "Gas bertekanan di dalamnya bisa meledak kalau masuk ke mesin pres pengolahan sampah biasa. Ini bahaya laten!" },
                     { id: 508, productIcon: "Liquid", productType: "Parfum Mewah", packagingIcon: "Bottle", imageUrl: "assets/botol-parfum.jpg", title: "Botol Parfum Press Mati", description: "Botol kaca dengan sisa parfum beralkohol pekat, ditambah nosel pompa logam yang dijepit mati (crimped) nggak bisa dibuka.", correctAnswer: "B3", explanation: "Walau botol kaca, sisa parfum cair itu gampang terbakar. Ditambah pompanya nyangkut mati, membuatnya susah dibersihkan." },
-                    // [RESIDU]
                     { id: 509, productIcon: "Powder", productType: "Teh Premium", packagingIcon: "Pouch", imageUrl: "assets/pouch-teh.jpg", title: "Pouch Kertas Lapis Foil", description: "Kantong teh estetik yang luarnya dilapisi kertas cokelat, tapi bagian dalamnya menyatu dengan aluminium foil kedap udara.", correctAnswer: "RESIDU", explanation: "Kelihatan ramah lingkungan dari luar, padahal kertas yang direkat kuat sama lapisan logam itu mustahil didaur ulang jadi apapun." },
                     { id: 510, productIcon: "Liquid", productType: "Deodoran Roll-On", packagingIcon: "Bottle", imageUrl: "assets/roll-on.jpg", title: "Kaca + Bola Plastik Mati", description: "Badan botol dari kaca tebal murni, tapi bagian bola roll-on plastiknya tertanam mati menyatu dengan botol dan mustahil dicabut tangan kosong.", correctAnswer: "RESIDU", explanation: "Karena konsumen gak bisa nyopot plastiknya secara manual, pecahan kaca ini dianggap terkontaminasi plastik dan sering ditolak." }
                 ]
@@ -186,7 +161,7 @@
 
             if (hasError || !src) {
                 return (
-                    <div className="w-16 h-16 text-indigo-500">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 text-indigo-500 flex items-center justify-center">
                         {FallbackIcon && <FallbackIcon />}
                     </div>
                 );
@@ -196,7 +171,7 @@
                     src={src} 
                     alt={alt} 
                     onError={() => setHasError(true)} 
-                    className="w-full h-full object-cover rounded-2xl select-none"
+                    className="w-full h-full object-cover select-none"
                     draggable="false" 
                 />
             );
@@ -206,7 +181,7 @@
         function ARScannerMode({ onBack, onSortResult }) {
             const videoRef = useRef(null);
             const canvasRef = useRef(null);
-            const [scanState, setScanState] = useState('IDLE'); // IDLE, SCANNING, RESULT, ERROR
+            const [scanState, setScanState] = useState('IDLE'); 
             const [capturedImg, setCapturedImg] = useState(null);
             const [aiResult, setAiResult] = useState(null);
             const [errorMessage, setErrorMessage] = useState("");
@@ -235,7 +210,6 @@
                 };
             }, []);
 
-            // Mengirim data ke API Gemini 2.5 Flash yang sesungguhnya dengan skema terstruktur
             const analyzeImageWithGemini = async (base64Data) => {
                 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
                 
@@ -318,7 +292,6 @@
                     setCapturedImg(dataUrl);
                     setScanState('SCANNING');
 
-                    // Ambil string murni base64
                     const base64Data = dataUrl.split(',')[1];
                     analyzeImageWithGemini(base64Data);
                 }
@@ -430,7 +403,8 @@
 
         // --- MAIN APP COMPONENT ---
         function App() {
-            const [gameState, setGameState] = useState('START'); // START, PLAYING, FEEDBACK, LEVEL_COMPLETE, VICTORY, AR_SCANNER
+            // State ditambahkan status 'RULES'
+            const [gameState, setGameState] = useState('START'); 
             const [activeSessionLevels, setActiveSessionLevels] = useState(() => {
                 return LEVEL_DATA.map(levelObj => ({
                     ...levelObj,
@@ -453,6 +427,10 @@
             const [playerName, setPlayerName] = useState('');
             const [isSubmitting, setIsSubmitting] = useState(false);
             const [submitStatus, setSubmitStatus] = useState(null);
+
+            const prepareGame = () => {
+                setGameState('RULES');
+            };
 
             const startGame = () => {
                 const randomizedLevels = LEVEL_DATA.map(levelObj => {
@@ -606,39 +584,73 @@
 
                         <main className="p-5 sm:p-10 flex-grow relative overflow-y-auto bg-slate-50 flex flex-col">
                             
-                            {/* LAYAR MULAI */}
+                            {/* LAYAR MULAI (START) */}
                             {gameState === 'START' && (
-                                <div className="text-center py-6 md:py-12 max-w-4xl mx-auto animate-in fade-in duration-500">
-                                    <div className="flex justify-center space-x-8 mb-8">
-                                        <div className="w-20 h-20 text-indigo-600 drop-shadow-md"><Icons.Pouch /></div>
-                                        <div className="w-20 h-20 text-indigo-600 drop-shadow-md"><Icons.Jar /></div>
-                                        <div className="w-20 h-20 text-indigo-600 drop-shadow-md"><Icons.Carton /></div>
-                                    </div>
-                                    <h1 className="text-5xl font-black text-slate-800 mb-4 tracking-tight">Bin It Right! <br/><span className="text-indigo-600 text-3xl sm:text-4xl">Lifecycle Packaging Design Game</span></h1>
-                                    <p className="text-xl text-slate-500 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">Uji kepekaan Eco-Design kamu. Ada puluhan case random yang siap mengecoh ide desainmu. Let's go!</p>
+                                <div className="text-center w-full min-h-[70vh] flex flex-col items-center justify-center animate-in fade-in duration-500 rounded-[2.5rem] overflow-hidden relative shadow-2xl p-8 mb-10 border-4 border-slate-800"
+                                     style={{
+                                         backgroundImage: "url('https://placehold.co/1920x1080/1e293b/ffffff?text=Banner+Landscape+Game+Kamu')",
+                                         backgroundSize: 'cover',
+                                         backgroundPosition: 'center'
+                                     }}>
                                     
-                                    <div className="bg-white rounded-3xl p-6 md:p-8 mb-10 text-left border-2 border-slate-100 shadow-xl">
-                                        <h2 className="font-black text-slate-800 mb-6 uppercase tracking-wider text-lg">5 Tong Sampah Rules:</h2>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                            {BINS.map(bin => (
-                                                <div key={bin.id} className={`p-4 rounded-2xl flex items-center border-l-8 shadow-sm ${bin.bgColor} ${bin.borderColor}`}>
-                                                    <span className="text-4xl mr-4">{bin.icon}</span>
-                                                    <div>
-                                                        <div className={`font-black ${bin.textColor} text-lg`}>{bin.label}</div>
-                                                        <div className="text-sm text-slate-600 mt-1 font-medium">{bin.desc}</div>
-                                                    </div>
-                                                </div>
-                                            ))}
+                                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+
+                                    <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+                                        <div className="flex justify-center space-x-8 mb-8">
+                                            <div className="w-20 h-20 text-emerald-400 drop-shadow-md"><Icons.Pouch /></div>
+                                            <div className="w-20 h-20 text-indigo-400 drop-shadow-md"><Icons.Jar /></div>
+                                            <div className="w-20 h-20 text-blue-400 drop-shadow-md"><Icons.Carton /></div>
+                                        </div>
+                                        <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                                            Bin It Right! <br/>
+                                            <span className="text-indigo-300 text-3xl sm:text-5xl drop-shadow-md">Lifecycle Packaging Design Game</span>
+                                        </h1>
+                                        <p className="text-xl text-slate-300 mb-10 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                                            Uji kepekaan Eco-Design kamu. Ada puluhan case random yang siap mengecoh ide desainmu. Let's go!
+                                        </p>
+                                        
+                                        <div className="space-y-4 max-w-sm w-full mx-auto">
+                                            <button onClick={prepareGame} className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-2xl py-5 rounded-2xl shadow-[0_8px_0_rgb(5,150,105)] hover:shadow-[0_4px_0_rgb(5,150,105)] hover:translate-y-1 transition-all">
+                                                Mulai Simulasi
+                                            </button>
+                                            <button onClick={() => setGameState('AR_SCANNER')} className="w-full bg-slate-800 hover:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-[0_6px_0_rgb(51,65,85)] hover:shadow-[0_3px_0_rgb(51,65,85)] hover:translate-y-1 transition-all flex items-center justify-center space-x-2 border-2 border-slate-600">
+                                                <span className="text-3xl">📷</span>
+                                                <span>Mode Kamera AR & AI (Beta)</span>
+                                            </button>
                                         </div>
                                     </div>
+                                </div>
+                            )}
 
-                                    <div className="space-y-4 max-w-sm mx-auto">
-                                        <button onClick={startGame} className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-2xl py-5 rounded-2xl shadow-[0_8px_0_rgb(5,150,105)] hover:shadow-[0_4px_0_rgb(5,150,105)] hover:translate-y-1 transition-all">
-                                            Mulai Simulasi
+                            {/* LAYAR ATURAN (RULES) */}
+                            {gameState === 'RULES' && (
+                                <div className="max-w-5xl mx-auto w-full animate-in slide-in-from-right-8 duration-500">
+                                    <div className="text-center mb-8">
+                                        <h2 className="text-4xl font-black text-slate-800 tracking-tight">Aturan Main & 5 Tong Sampah</h2>
+                                        <p className="text-lg text-slate-500 mt-2 font-medium">Kenali dengan baik sebelum kamu mulai memilah kemasan.</p>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10">
+                                        {BINS.map(bin => (
+                                            <div key={bin.id} className={`p-6 rounded-3xl flex items-start border-l-8 shadow-md transition-transform hover:-translate-y-1 ${bin.bgColor} ${bin.borderColor}`}>
+                                                <span className="text-5xl mr-5 shrink-0">{bin.icon}</span>
+                                                <div>
+                                                    <div className={`font-black ${bin.textColor} text-2xl mb-1`}>{bin.label}</div>
+                                                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 bg-white/60 text-slate-600">
+                                                        {bin.subLabel}
+                                                    </div>
+                                                    <p className="text-sm md:text-base text-slate-700 font-medium leading-relaxed">{bin.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                                        <button onClick={backToStart} className="w-full sm:w-1/3 py-5 bg-white border-4 border-slate-200 text-slate-700 font-black text-xl rounded-2xl hover:bg-slate-50 transition-all active:scale-95 shadow-sm">
+                                            Kembali
                                         </button>
-                                        <button onClick={() => setGameState('AR_SCANNER')} className="w-full bg-slate-800 hover:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-[0_6px_0_rgb(51,65,85)] hover:shadow-[0_3px_0_rgb(51,65,85)] hover:translate-y-1 transition-all flex items-center justify-center space-x-2">
-                                            <span className="text-3xl">📷</span>
-                                            <span>Mode Kamera AR & AI (Beta)</span>
+                                        <button onClick={startGame} className="w-full sm:w-1/2 py-5 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-2xl rounded-2xl shadow-[0_8px_0_rgb(5,150,105)] hover:shadow-[0_4px_0_rgb(5,150,105)] hover:translate-y-1 transition-all">
+                                            Gas, Lanjut Level 1! ➡️
                                         </button>
                                     </div>
                                 </div>
@@ -652,7 +664,7 @@
                                 />
                             )}
 
-                            {/* LAYAR BERMAIN (DENGAN DRAG & DROP KHUSUS TOKEN GAMBAR) */}
+                            {/* LAYAR BERMAIN */}
                             {gameState === 'PLAYING' && currentQuestion && (
                                 <div className="flex flex-col h-full animate-in fade-in duration-500">
                                     <div className="flex justify-between items-center mb-6 sm:mb-8">
@@ -676,24 +688,26 @@
                                                 </p>
                                             </div>
 
-                                            {/* TOKEN FISIK INTERAKTIF (DRAGGABLE) */}
-                                            <div className="flex flex-col items-center justify-center">
+                                            {/* TOKEN FISIK INTERAKTIF (DIKEMBALIKAN KE BULATAN BESAR) */}
+                                            <div className="flex flex-col items-center justify-center w-full">
                                                 <div 
                                                     draggable={!animatingItem} 
                                                     onDragStart={handleDragStart}
                                                     onDragEnd={handleDragEnd}
-                                                    className={`w-28 h-28 sm:w-36 sm:h-36 rounded-full border-4 bg-white flex items-center justify-center shadow-lg transition-all duration-300 relative group overflow-hidden
-                                                        cursor-grab active:cursor-grabbing hover:border-indigo-400 hover:shadow-2xl hover:scale-105
-                                                        ${isDragging ? 'shadow-2xl border-indigo-500 scale-105 ring-4 ring-indigo-100' : 'border-slate-300'}
-                                                    `}
+                                                    className={`relative w-40 h-40 sm:w-48 sm:h-48 transition-all duration-300 group cursor-grab active:cursor-grabbing hover:scale-110 ${isDragging ? 'scale-110' : ''}`}
                                                     title="Seret gambar ini!"
                                                 >
-                                                    <SafeImage src={currentQuestion.imageUrl} alt={currentQuestion.title} FallbackIcon={PackagingIcon} />
-                                                    <div className="absolute -right-1 -bottom-1 bg-indigo-500 text-white p-2.5 rounded-full shadow-md flex items-center justify-center pointer-events-none transition-transform duration-300 group-hover:scale-110">
-                                                        <span className="text-base">🖐️</span>
+                                                    <div className={`w-full h-full rounded-full border-4 bg-white flex items-center justify-center overflow-hidden shadow-lg transition-colors duration-300 group-hover:border-indigo-400 group-hover:shadow-2xl
+                                                        ${isDragging ? 'shadow-2xl border-indigo-500 ring-4 ring-indigo-100' : 'border-slate-200'}
+                                                    `}>
+                                                        <SafeImage src={currentQuestion.imageUrl} alt={currentQuestion.title} FallbackIcon={PackagingIcon} />
+                                                    </div>
+                                                    
+                                                    <div className="absolute -right-2 -bottom-2 bg-indigo-500 text-white p-3 rounded-full shadow-xl flex items-center justify-center pointer-events-none transition-transform duration-300 group-hover:scale-110 z-10 border-4 border-white animate-bounce">
+                                                        <span className="text-xl leading-none">🖐️</span>
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-indigo-500 font-black uppercase tracking-widest mt-4 animate-pulse">
+                                                <p className="text-sm text-indigo-500 font-black uppercase tracking-widest mt-6 animate-pulse">
                                                     👋 Seret Bulatan Gambar Ini!
                                                 </p>
                                             </div>
@@ -734,7 +748,6 @@
                                         </div>
                                     </div>
                                     
-                                    {/* TOMBOL KEMBALI (BATALKAN SIMULASI) */}
                                     <div className="mt-10 flex justify-center pb-4">
                                         <button onClick={backToStart} className="text-slate-400 hover:text-slate-600 font-bold text-sm sm:text-base flex items-center gap-2 transition-colors border border-slate-300 hover:border-slate-400 px-4 py-2 rounded-full">
                                             <span>🏠</span> <span>Kembali ke Menu Utama</span>
@@ -759,8 +772,7 @@
                                             <div className={`absolute left-0 top-0 bottom-0 w-2 ${lastAnswerStatus === 'CORRECT' ? 'bg-emerald-500' : 'bg-red-500'}`}></div>
                                             
                                             <div className="flex flex-col sm:flex-row mb-6 items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
-                                                {/* Thumbnail Gambar di Feedback */}
-                                                <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-3xl flex-shrink-0 border-2 flex items-center justify-center shadow-inner overflow-hidden ${lastAnswerStatus === 'CORRECT' ? 'bg-emerald-100 border-emerald-300 text-emerald-600' : 'bg-red-100 border-red-300 text-red-600'}`}>
+                                                <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full flex-shrink-0 border-4 flex items-center justify-center shadow-inner overflow-hidden ${lastAnswerStatus === 'CORRECT' ? 'bg-emerald-100 border-emerald-300 text-emerald-600' : 'bg-red-100 border-red-300 text-red-600'}`}>
                                                     <SafeImage src={currentQuestion.imageUrl} alt={currentQuestion.title} FallbackIcon={PackagingIcon} />
                                                 </div>
                                                 
@@ -785,8 +797,8 @@
                                             </div>
 
                                             <div className="bg-white/80 p-5 sm:p-6 rounded-2xl border border-white shadow-sm backdrop-blur-sm">
-                                                <p className="text-slate-800 text-xl sm:text-2xl leading-relaxed font-bold">
-                                                    {currentQuestion.explanation}
+                                                <p className="text-slate-800 text-xl sm:text-2xl leading-relaxed font-bold whitespace-pre-wrap">
+                                                    "{currentQuestion.explanation}"
                                                 </p>
                                             </div>
                                         </div>
@@ -799,7 +811,6 @@
                                         </button>
                                     </div>
                                     
-                                    {/* TOMBOL KEMBALI (BATALKAN SIMULASI) */}
                                     <div className="mt-6 flex justify-center pb-4">
                                         <button onClick={backToStart} className="text-slate-400 hover:text-slate-600 font-bold text-sm sm:text-base flex items-center gap-2 transition-colors border border-slate-300 hover:border-slate-400 px-4 py-2 rounded-full">
                                             <span>🏠</span> <span>Kembali ke Menu Utama</span>
@@ -838,7 +849,6 @@
                                         </div>
                                     </div>
                                     
-                                    {/* TOMBOL KEMBALI */}
                                     <div className="mt-10 flex justify-center pb-4">
                                         <button onClick={backToStart} className="text-slate-400 hover:text-slate-600 font-bold text-sm sm:text-base flex items-center gap-2 transition-colors border border-slate-300 hover:border-slate-400 px-4 py-2 rounded-full">
                                             <span>🏠</span> <span>Kembali ke Menu Utama</span>
