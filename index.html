@@ -28,6 +28,14 @@
         .animate-scanline {
             animation: scanline 2.5s ease-in-out infinite;
         }
+
+        /* Custom styling untuk radio button agar lebih menyatu dengan UI */
+        .custom-radio:checked + div {
+            border-color: #4f46e5; /* indigo-600 */
+            background-color: #e0e7ff; /* indigo-50 */
+            color: #312e81; /* indigo-900 */
+            font-weight: 900;
+        }
     </style>
 </head>
 <body class="bg-slate-900">
@@ -39,12 +47,12 @@
         // ==========================================
         //         --- GLOBAL CONFIGURATION ---
         // ==========================================
-        const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby6ZnUyaQdzh69jBoPJ9J-Zid5CqzwxoSct25tA2ZFtSDI1G2gbv1YoZy1tdpNjKYWIvA/exec";
+        const GOOGLE_SHEET_WEBHOOK_URL = "URL_APP_SCRIPT_KAMU_DISINI";
         
         // 🚨 TRIK MENGAKALI DETEKSI KEAMANAN GITHUB (String Splitting) 🚨
         // Buat API Key BARU di Google AI Studio, potong menjadi dua bagian, lalu paste di bawah ini:
-        const POTONGAN_API_SATU = "AQ.Ab8RN6J84mQCbFVJFg4CMB23j"; // Contoh: "AIzaSyBw-KunciRaha"
-        const POTONGAN_API_DUA  = "OS3nUZIYc1uMZX3ZKLfEyCeuA";  // Contoh: "siaKamuSangatPanjang"
+        const POTONGAN_API_SATU = "PASTE_POTONGAN_PERTAMA_DISINI"; // Contoh: "AIzaSyBw-KunciRaha"
+        const POTONGAN_API_DUA  = "PASTE_POTONGAN_KEDUA_DISINI";  // Contoh: "siaKamuSangatPanjang"
         
         // Digabungkan oleh sistem saat game dijalankan
         const GEMINI_API_KEY = POTONGAN_API_SATU + POTONGAN_API_DUA;
@@ -459,6 +467,7 @@
             
             // Leaderboard Submit States
             const [playerName, setPlayerName] = useState('');
+            const [playerProfession, setPlayerProfession] = useState('Desainer / Mahasiswa'); // Default value
             const [isSubmitting, setIsSubmitting] = useState(false);
             const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -579,7 +588,8 @@
                         method: 'POST',
                         mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: playerName, score: score })
+                        // Mengirim nama, profesi yang dipilih, dan skor
+                        body: JSON.stringify({ name: playerName, profession: playerProfession, score: score })
                     });
                     setSubmitStatus('SUCCESS');
                 } catch (error) {
@@ -905,33 +915,66 @@
                                         </div>
                                     </div>
 
-                                    {/* 1. FORM SUBMIT KE GOOGLE SHEETS */}
+                                    {/* 1. FORM SUBMIT KE GOOGLE SHEETS DENGAN RADIO BUTTON */}
                                     <div className="bg-indigo-50 border-2 border-indigo-200 rounded-[2rem] p-6 sm:p-8 mb-12 shadow-sm text-left max-w-2xl mx-auto">
                                         <h3 className="text-2xl font-black text-indigo-900 mb-2">Simpan Skormu di Leaderboard! 🏆</h3>
-                                        <p className="text-indigo-700 mb-6 font-medium">Catat namamu sebagai desainer yang peduli lingkungan.</p>
+                                        <p className="text-indigo-700 mb-6 font-medium">Bantu penelitian kami dengan membagikan profesi dan skormu.</p>
                                         
                                         {submitStatus === 'SUCCESS' ? (
                                             <div className="bg-emerald-100 text-emerald-800 p-4 rounded-xl font-bold flex items-center">
                                                 <span className="mr-2 text-2xl">🎉</span> Mantap! Skor kamu udah kecatet di sistem.
                                             </div>
                                         ) : (
-                                            <form onSubmit={handleSaveScore} className="flex flex-col sm:flex-row gap-4">
-                                                <input 
-                                                    type="text" 
-                                                    required
-                                                    value={playerName}
-                                                    onChange={(e) => setPlayerName(e.target.value)}
-                                                    placeholder="Masukkan namamu (ex: Budi Desainer)" 
-                                                    className="flex-grow px-5 py-4 rounded-xl border-2 border-indigo-200 focus:outline-none focus:border-indigo-500 font-bold text-slate-800"
-                                                    disabled={isSubmitting}
-                                                />
-                                                <button 
-                                                    type="submit" 
-                                                    disabled={isSubmitting || !playerName.trim()}
-                                                    className="px-8 py-4 bg-indigo-600 text-white font-black rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-all shadow-md shrink-0"
-                                                >
-                                                    {isSubmitting ? "Menyimpan..." : "Simpan Skor"}
-                                                </button>
+                                            <form onSubmit={handleSaveScore} className="flex flex-col gap-5">
+                                                
+                                                {/* Pilihan Profesi (Radio Buttons) */}
+                                                <div className="flex flex-col sm:flex-row gap-3">
+                                                    <label className="flex-1 relative cursor-pointer group">
+                                                        <input 
+                                                            type="radio" 
+                                                            name="profession" 
+                                                            value="Desainer / Mahasiswa" 
+                                                            checked={playerProfession === 'Desainer / Mahasiswa'}
+                                                            onChange={(e) => setPlayerProfession(e.target.value)}
+                                                            className="custom-radio sr-only" 
+                                                        />
+                                                        <div className="px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white text-slate-600 font-bold text-center transition-all group-hover:border-indigo-400">
+                                                            🎨 Desainer / Mahasiswa Kreatif
+                                                        </div>
+                                                    </label>
+                                                    <label className="flex-1 relative cursor-pointer group">
+                                                        <input 
+                                                            type="radio" 
+                                                            name="profession" 
+                                                            value="Umum" 
+                                                            checked={playerProfession === 'Umum'}
+                                                            onChange={(e) => setPlayerProfession(e.target.value)}
+                                                            className="custom-radio sr-only" 
+                                                        />
+                                                        <div className="px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white text-slate-600 font-bold text-center transition-all group-hover:border-indigo-400">
+                                                            👥 Masyarakat Umum
+                                                        </div>
+                                                    </label>
+                                                </div>
+
+                                                <div className="flex flex-col sm:flex-row gap-4">
+                                                    <input 
+                                                        type="text" 
+                                                        required
+                                                        value={playerName}
+                                                        onChange={(e) => setPlayerName(e.target.value)}
+                                                        placeholder="Masukkan namamu (ex: Budi)" 
+                                                        className="flex-grow px-5 py-4 rounded-xl border-2 border-indigo-200 focus:outline-none focus:border-indigo-500 font-bold text-slate-800"
+                                                        disabled={isSubmitting}
+                                                    />
+                                                    <button 
+                                                        type="submit" 
+                                                        disabled={isSubmitting || !playerName.trim()}
+                                                        className="px-8 py-4 bg-indigo-600 text-white font-black rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-all shadow-md shrink-0"
+                                                    >
+                                                        {isSubmitting ? "Menyimpan..." : "Simpan Skor"}
+                                                    </button>
+                                                </div>
                                             </form>
                                         )}
                                         {submitStatus === 'ERROR' && (
